@@ -3,7 +3,9 @@
  * Ensures 100% interactive operation even if Spring Boot server is not running!
  */
 
-const API_BASE_URL = 'http://localhost:8080/api';
+const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? 'http://localhost:8080/api'
+    : 'https://autovault-xaat.onrender.com/api';
 
 // Demo Mock Data for Fallback Mode
 const MOCK_DATA = {

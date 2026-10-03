@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoVault — Premium Automobile Showroom</title>
+
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom CSS Design System -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Dynamic Modal Overlay -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+        <div class="modal-box glass-card">
+            <div class="modal-header">
+                <h3 id="modal-title" class="modal-title">Modal Title</h3>
+                <button id="modal-close" class="modal-close-btn">&times;</button>
+            </div>
+            <div id="modal-body" class="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Confirm Overlay -->
+    <div id="confirm-overlay" class="modal-overlay hidden">
+        <div class="modal-box glass-card confirm-box">
+            <h3 id="confirm-title" class="modal-title">Confirm Action</h3>
+            <p id="confirm-message" class="text-secondary mt-2">Are you sure you want to proceed?</p>
+            <div class="modal-actions mt-4">
+                <button id="confirm-cancel" class="btn btn-ghost">Cancel</button>
+                <button id="confirm-ok" class="btn btn-danger">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Container (Login, Register, Verify OTP) -->
+    <div id="auth-container" class="auth-wrapper">
+        <div id="auth-content" class="auth-content-box"></div>
+    </div>
+
+    <!-- Main Single-Page Application Layout -->
+    <div id="app-container" class="app-layout hidden">
+        <!-- Sidebar Navigation -->
+        <aside id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand">
+                    <i class="fas fa-car-side brand-icon"></i>
+                    <span class="brand-text">Auto<span class="accent">Vault</span></span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#dashboard" class="nav-link" data-page="dashboard">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#cars" class="nav-link" data-page="cars">
+                    <i class="fas fa-car"></i>
+                    <span>Cars Inventory</span>
+                </a>
+                <a href="#customers" class="nav-link" data-page="customers">
+                    <i class="fas fa-users"></i>
+                    <span>Customers</span>
+                </a>
+                <a href="#staff" class="nav-link" data-page="staff">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Staff</span>
+                </a>
+                <a href="#sales" class="nav-link" data-page="sales">
+                    <i class="fas fa-receipt"></i>
+                    <span>Sales Records</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-user">
+                <div id="user-avatar" class="user-avatar">A</div>
+                <div class="user-info">
+                    <div id="user-name" class="user-name">Admin</div>
+                    <div id="user-role" class="user-role">Administrator</div>
+                </div>
+                <button id="logout-btn" class="logout-btn" title="Logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Workspace Area -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button id="sidebar-toggle" class="sidebar-toggle-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div>
+                        <h1 id="page-title" class="page-title">Dashboard</h1>
+                        <p id="page-subtitle" class="page-subtitle">Showroom overview</p>
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+                    <div id="global-search-box" class="global-search" style="display:none;">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="global-search-input" placeholder="Search cars by make, model...">
+                    </div>
+
+                    <div class="live-status-pill">
+                        <span class="status-dot online"></span>
+                        <span class="status-text">Backend Connected</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dynamic Page Content -->
+            <div id="page-content" class="page-content"></div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/cars.js"></script>
+    <script src="js/customers.js"></script>
+    <script src="js/staff.js"></script>
+    <script src="js/sales.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
